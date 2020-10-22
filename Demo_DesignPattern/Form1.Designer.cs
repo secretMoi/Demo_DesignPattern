@@ -29,18 +29,20 @@
 		private void InitializeComponent()
 		{
 			this.groupBoxSingleton = new System.Windows.Forms.GroupBox();
+			this.labelInstancesLazy = new System.Windows.Forms.Label();
+			this.labelInstancesSimple = new System.Windows.Forms.Label();
+			this.buttonSingletonLazyThread = new System.Windows.Forms.Button();
+			this.labelInLazyNombre = new System.Windows.Forms.Label();
+			this.labelLazyNombre = new System.Windows.Forms.Label();
+			this.buttonSingletonLazy = new System.Windows.Forms.Button();
 			this.buttonSingletonSimpleThread = new System.Windows.Forms.Button();
 			this.labelNombreSingleton = new System.Windows.Forms.Label();
 			this.labelNombre = new System.Windows.Forms.Label();
 			this.buttonSimple = new System.Windows.Forms.Button();
 			this.groupBoxDependance = new System.Windows.Forms.GroupBox();
-			this.buttonSingletonLazyThread = new System.Windows.Forms.Button();
-			this.labelInLazyNombre = new System.Windows.Forms.Label();
-			this.labelLazyNombre = new System.Windows.Forms.Label();
-			this.buttonSingletonLazy = new System.Windows.Forms.Button();
-			this.labelInstancesSimple = new System.Windows.Forms.Label();
-			this.labelInstancesLazy = new System.Windows.Forms.Label();
+			this.listBoxInjection = new System.Windows.Forms.ListBox();
 			this.groupBoxSingleton.SuspendLayout();
+			this.groupBoxDependance.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// groupBoxSingleton
@@ -62,6 +64,70 @@
 			this.groupBoxSingleton.TabIndex = 0;
 			this.groupBoxSingleton.TabStop = false;
 			this.groupBoxSingleton.Text = "Singleton";
+			// 
+			// labelInstancesLazy
+			// 
+			this.labelInstancesLazy.AutoSize = true;
+			this.labelInstancesLazy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelInstancesLazy.Location = new System.Drawing.Point(113, 335);
+			this.labelInstancesLazy.Name = "labelInstancesLazy";
+			this.labelInstancesLazy.Size = new System.Drawing.Size(46, 20);
+			this.labelInstancesLazy.TabIndex = 9;
+			this.labelInstancesLazy.Text = "Rien";
+			// 
+			// labelInstancesSimple
+			// 
+			this.labelInstancesSimple.AutoSize = true;
+			this.labelInstancesSimple.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelInstancesSimple.Location = new System.Drawing.Point(107, 132);
+			this.labelInstancesSimple.Name = "labelInstancesSimple";
+			this.labelInstancesSimple.Size = new System.Drawing.Size(46, 20);
+			this.labelInstancesSimple.TabIndex = 8;
+			this.labelInstancesSimple.Text = "Rien";
+			// 
+			// buttonSingletonLazyThread
+			// 
+			this.buttonSingletonLazyThread.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.buttonSingletonLazyThread.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.buttonSingletonLazyThread.Location = new System.Drawing.Point(12, 321);
+			this.buttonSingletonLazyThread.Name = "buttonSingletonLazyThread";
+			this.buttonSingletonLazyThread.Size = new System.Drawing.Size(75, 50);
+			this.buttonSingletonLazyThread.TabIndex = 7;
+			this.buttonSingletonLazyThread.Text = "Lazy Thread";
+			this.buttonSingletonLazyThread.UseVisualStyleBackColor = true;
+			this.buttonSingletonLazyThread.Click += new System.EventHandler(this.buttonSingletonLazyThread_Click);
+			// 
+			// labelInLazyNombre
+			// 
+			this.labelInLazyNombre.AutoSize = true;
+			this.labelInLazyNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelInLazyNombre.Location = new System.Drawing.Point(113, 261);
+			this.labelInLazyNombre.Name = "labelInLazyNombre";
+			this.labelInLazyNombre.Size = new System.Drawing.Size(46, 20);
+			this.labelInLazyNombre.TabIndex = 6;
+			this.labelInLazyNombre.Text = "Rien";
+			// 
+			// labelLazyNombre
+			// 
+			this.labelLazyNombre.AutoSize = true;
+			this.labelLazyNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelLazyNombre.Location = new System.Drawing.Point(113, 231);
+			this.labelLazyNombre.Name = "labelLazyNombre";
+			this.labelLazyNombre.Size = new System.Drawing.Size(46, 20);
+			this.labelLazyNombre.TabIndex = 5;
+			this.labelLazyNombre.Text = "Rien";
+			// 
+			// buttonSingletonLazy
+			// 
+			this.buttonSingletonLazy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.buttonSingletonLazy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.buttonSingletonLazy.Location = new System.Drawing.Point(12, 231);
+			this.buttonSingletonLazy.Name = "buttonSingletonLazy";
+			this.buttonSingletonLazy.Size = new System.Drawing.Size(75, 50);
+			this.buttonSingletonLazy.TabIndex = 4;
+			this.buttonSingletonLazy.Text = "Lazy";
+			this.buttonSingletonLazy.UseVisualStyleBackColor = true;
+			this.buttonSingletonLazy.Click += new System.EventHandler(this.buttonSingletonLazy_Click);
 			// 
 			// buttonSingletonSimpleThread
 			// 
@@ -109,6 +175,7 @@
 			// 
 			// groupBoxDependance
 			// 
+			this.groupBoxDependance.Controls.Add(this.listBoxInjection);
 			this.groupBoxDependance.Dock = System.Windows.Forms.DockStyle.Right;
 			this.groupBoxDependance.Location = new System.Drawing.Point(334, 0);
 			this.groupBoxDependance.Name = "groupBoxDependance";
@@ -117,69 +184,13 @@
 			this.groupBoxDependance.TabStop = false;
 			this.groupBoxDependance.Text = "Injection de dépendance";
 			// 
-			// buttonSingletonLazyThread
+			// listBoxInjection
 			// 
-			this.buttonSingletonLazyThread.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.buttonSingletonLazyThread.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.buttonSingletonLazyThread.Location = new System.Drawing.Point(12, 321);
-			this.buttonSingletonLazyThread.Name = "buttonSingletonLazyThread";
-			this.buttonSingletonLazyThread.Size = new System.Drawing.Size(75, 50);
-			this.buttonSingletonLazyThread.TabIndex = 7;
-			this.buttonSingletonLazyThread.Text = "Lazy Thread";
-			this.buttonSingletonLazyThread.UseVisualStyleBackColor = true;
-			this.buttonSingletonLazyThread.Click += new System.EventHandler(this.buttonSingletonLazyThread_Click);
-			// 
-			// labelInLazyNombre
-			// 
-			this.labelInLazyNombre.AutoSize = true;
-			this.labelInLazyNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelInLazyNombre.Location = new System.Drawing.Point(113, 261);
-			this.labelInLazyNombre.Name = "labelInLazyNombre";
-			this.labelInLazyNombre.Size = new System.Drawing.Size(46, 20);
-			this.labelInLazyNombre.TabIndex = 6;
-			this.labelInLazyNombre.Text = "Rien";
-			// 
-			// labelLazyNombre
-			// 
-			this.labelLazyNombre.AutoSize = true;
-			this.labelLazyNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelLazyNombre.Location = new System.Drawing.Point(113, 231);
-			this.labelLazyNombre.Name = "labelLazyNombre";
-			this.labelLazyNombre.Size = new System.Drawing.Size(46, 20);
-			this.labelLazyNombre.TabIndex = 5;
-			this.labelLazyNombre.Text = "Rien";
-			// 
-			// buttonSingletonLazy
-			// 
-			this.buttonSingletonLazy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.buttonSingletonLazy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.buttonSingletonLazy.Location = new System.Drawing.Point(12, 231);
-			this.buttonSingletonLazy.Name = "buttonSingletonLazy";
-			this.buttonSingletonLazy.Size = new System.Drawing.Size(75, 50);
-			this.buttonSingletonLazy.TabIndex = 4;
-			this.buttonSingletonLazy.Text = "Lazy";
-			this.buttonSingletonLazy.UseVisualStyleBackColor = true;
-			this.buttonSingletonLazy.Click += new System.EventHandler(this.buttonSingletonLazy_Click);
-			// 
-			// labelInstancesSimple
-			// 
-			this.labelInstancesSimple.AutoSize = true;
-			this.labelInstancesSimple.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelInstancesSimple.Location = new System.Drawing.Point(107, 132);
-			this.labelInstancesSimple.Name = "labelInstancesSimple";
-			this.labelInstancesSimple.Size = new System.Drawing.Size(46, 20);
-			this.labelInstancesSimple.TabIndex = 8;
-			this.labelInstancesSimple.Text = "Rien";
-			// 
-			// labelInstancesLazy
-			// 
-			this.labelInstancesLazy.AutoSize = true;
-			this.labelInstancesLazy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelInstancesLazy.Location = new System.Drawing.Point(113, 335);
-			this.labelInstancesLazy.Name = "labelInstancesLazy";
-			this.labelInstancesLazy.Size = new System.Drawing.Size(46, 20);
-			this.labelInstancesLazy.TabIndex = 9;
-			this.labelInstancesLazy.Text = "Rien";
+			this.listBoxInjection.FormattingEnabled = true;
+			this.listBoxInjection.Location = new System.Drawing.Point(6, 28);
+			this.listBoxInjection.Name = "listBoxInjection";
+			this.listBoxInjection.Size = new System.Drawing.Size(288, 160);
+			this.listBoxInjection.TabIndex = 0;
 			// 
 			// Form1
 			// 
@@ -192,6 +203,7 @@
 			this.Text = "Form1";
 			this.groupBoxSingleton.ResumeLayout(false);
 			this.groupBoxSingleton.PerformLayout();
+			this.groupBoxDependance.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -210,6 +222,7 @@
 		private System.Windows.Forms.Button buttonSingletonLazy;
 		private System.Windows.Forms.Label labelInstancesLazy;
 		private System.Windows.Forms.Label labelInstancesSimple;
+		private System.Windows.Forms.ListBox listBoxInjection;
 	}
 }
 

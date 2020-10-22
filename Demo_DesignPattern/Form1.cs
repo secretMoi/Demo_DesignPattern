@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
+using Demo_DesignPattern.Injection;
 using Demo_DesignPattern.Singleton;
 
 namespace Demo_DesignPattern
@@ -14,6 +15,14 @@ namespace Demo_DesignPattern
 		public Form1()
 		{
 			InitializeComponent();
+
+			Injection();
+		}
+
+		private void Injection()
+		{
+			//Controller controller = new Controller();
+			InversionAbstraite.Controller controller = new InversionAbstraite.Controller();
 		}
 
 		private void buttonSimple_Click(object sender, System.EventArgs e)

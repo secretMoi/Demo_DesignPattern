@@ -52,6 +52,22 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="InversionAbstraite\Factory.cs" />
+    <Compile Include="InversionAbstraite\Interfaces\ILogger.cs" />
+    <Compile Include="InversionAbstraite\Interfaces\IMessageSender.cs" />
+    <Compile Include="InversionAbstraite\Interfaces\ITache.cs" />
+    <Compile Include="InversionAbstraite\Tache.cs" />
+    <Compile Include="InversionAbstraite\Controller.cs" />
+    <Compile Include="InversionAbstraite\Interfaces\IPersonne.cs" />
+    <Compile Include="InversionAbstraite\Logger.cs" />
+    <Compile Include="InversionAbstraite\Emailer.cs" />
+    <Compile Include="InversionAbstraite\Personne.cs" />
+    <Compile Include="Injection\Chore.cs" />
+    <Compile Include="Injection\Controller.cs" />
+    <Compile Include="Injection\Logger.cs" />
+    <Compile Include="Injection\Mailer.cs" />
+    <Compile Include="Injection\Personne.cs" />
+    <Compile Include="InversionAbstraite\Texter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Singleton\Singleton.cs" />
