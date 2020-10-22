@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Demo_DesignPattern.Singleton
+﻿namespace Demo_DesignPattern.Singleton
 {
 	/**
 	 * Avantages singleton sur static
@@ -15,10 +12,9 @@ namespace Demo_DesignPattern.Singleton
 	 *
 	 * Choisir static seulement si aucun état ne doit être stocké : ex classe Math
 	 */
-	public class SingletonSimple
+	public class SingletonSimple : Singleton
 	{
 		private static SingletonSimple _instance;
-		private readonly List<int> _list = new List<int>();
 
 		/**
 		 * Lecture Seule
@@ -36,32 +32,12 @@ namespace Demo_DesignPattern.Singleton
 			}
 		}
 
-		public int NombreAleatoire { get; }
-
 		/**
 		 * Constructeur en privé, empêche toute nouvelle instance accidentelle en dehors de la classe
 		 */
 		private SingletonSimple()
 		{
 			NombreAleatoire = GenereNombreAleatoire();
-		}
-
-		/**
-		 * <summary>Génère un nombre aléatoire à chaque appel</summary>
-		 */
-		public static int GenereNombreAleatoire()
-		{
-			Random random = new Random();
-			return random.Next(Int32.MinValue, int.MaxValue);
-		}
-
-		public void DoSomething()
-		{
-			for (int i = 0; i < 1000000; i++)
-			{
-				_list.Add(i);
-				_list.Remove(i);
-			}
 		}
 	}
 }

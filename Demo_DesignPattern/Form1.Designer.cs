@@ -29,16 +29,28 @@
 		private void InitializeComponent()
 		{
 			this.groupBoxSingleton = new System.Windows.Forms.GroupBox();
-			this.groupBoxDependance = new System.Windows.Forms.GroupBox();
-			this.buttonSimple = new System.Windows.Forms.Button();
-			this.labelNombre = new System.Windows.Forms.Label();
-			this.labelNombreSingleton = new System.Windows.Forms.Label();
 			this.buttonSingletonSimpleThread = new System.Windows.Forms.Button();
+			this.labelNombreSingleton = new System.Windows.Forms.Label();
+			this.labelNombre = new System.Windows.Forms.Label();
+			this.buttonSimple = new System.Windows.Forms.Button();
+			this.groupBoxDependance = new System.Windows.Forms.GroupBox();
+			this.buttonSingletonLazyThread = new System.Windows.Forms.Button();
+			this.labelInLazyNombre = new System.Windows.Forms.Label();
+			this.labelLazyNombre = new System.Windows.Forms.Label();
+			this.buttonSingletonLazy = new System.Windows.Forms.Button();
+			this.labelInstancesSimple = new System.Windows.Forms.Label();
+			this.labelInstancesLazy = new System.Windows.Forms.Label();
 			this.groupBoxSingleton.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// groupBoxSingleton
 			// 
+			this.groupBoxSingleton.Controls.Add(this.labelInstancesLazy);
+			this.groupBoxSingleton.Controls.Add(this.labelInstancesSimple);
+			this.groupBoxSingleton.Controls.Add(this.buttonSingletonLazyThread);
+			this.groupBoxSingleton.Controls.Add(this.labelInLazyNombre);
+			this.groupBoxSingleton.Controls.Add(this.labelLazyNombre);
+			this.groupBoxSingleton.Controls.Add(this.buttonSingletonLazy);
 			this.groupBoxSingleton.Controls.Add(this.buttonSingletonSimpleThread);
 			this.groupBoxSingleton.Controls.Add(this.labelNombreSingleton);
 			this.groupBoxSingleton.Controls.Add(this.labelNombre);
@@ -51,15 +63,37 @@
 			this.groupBoxSingleton.TabStop = false;
 			this.groupBoxSingleton.Text = "Singleton";
 			// 
-			// groupBoxDependance
+			// buttonSingletonSimpleThread
 			// 
-			this.groupBoxDependance.Dock = System.Windows.Forms.DockStyle.Right;
-			this.groupBoxDependance.Location = new System.Drawing.Point(334, 0);
-			this.groupBoxDependance.Name = "groupBoxDependance";
-			this.groupBoxDependance.Size = new System.Drawing.Size(300, 450);
-			this.groupBoxDependance.TabIndex = 1;
-			this.groupBoxDependance.TabStop = false;
-			this.groupBoxDependance.Text = "Injection de dépendance";
+			this.buttonSingletonSimpleThread.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.buttonSingletonSimpleThread.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.buttonSingletonSimpleThread.Location = new System.Drawing.Point(6, 118);
+			this.buttonSingletonSimpleThread.Name = "buttonSingletonSimpleThread";
+			this.buttonSingletonSimpleThread.Size = new System.Drawing.Size(75, 50);
+			this.buttonSingletonSimpleThread.TabIndex = 3;
+			this.buttonSingletonSimpleThread.Text = "Simple Thread";
+			this.buttonSingletonSimpleThread.UseVisualStyleBackColor = true;
+			this.buttonSingletonSimpleThread.Click += new System.EventHandler(this.buttonSingletonSimpleThread_Click);
+			// 
+			// labelNombreSingleton
+			// 
+			this.labelNombreSingleton.AutoSize = true;
+			this.labelNombreSingleton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelNombreSingleton.Location = new System.Drawing.Point(107, 58);
+			this.labelNombreSingleton.Name = "labelNombreSingleton";
+			this.labelNombreSingleton.Size = new System.Drawing.Size(46, 20);
+			this.labelNombreSingleton.TabIndex = 2;
+			this.labelNombreSingleton.Text = "Rien";
+			// 
+			// labelNombre
+			// 
+			this.labelNombre.AutoSize = true;
+			this.labelNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelNombre.Location = new System.Drawing.Point(107, 28);
+			this.labelNombre.Name = "labelNombre";
+			this.labelNombre.Size = new System.Drawing.Size(46, 20);
+			this.labelNombre.TabIndex = 1;
+			this.labelNombre.Text = "Rien";
 			// 
 			// buttonSimple
 			// 
@@ -73,37 +107,79 @@
 			this.buttonSimple.UseVisualStyleBackColor = true;
 			this.buttonSimple.Click += new System.EventHandler(this.buttonSimple_Click);
 			// 
-			// labelNombre
+			// groupBoxDependance
 			// 
-			this.labelNombre.AutoSize = true;
-			this.labelNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelNombre.Location = new System.Drawing.Point(107, 28);
-			this.labelNombre.Name = "labelNombre";
-			this.labelNombre.Size = new System.Drawing.Size(46, 20);
-			this.labelNombre.TabIndex = 1;
-			this.labelNombre.Text = "Rien";
+			this.groupBoxDependance.Dock = System.Windows.Forms.DockStyle.Right;
+			this.groupBoxDependance.Location = new System.Drawing.Point(334, 0);
+			this.groupBoxDependance.Name = "groupBoxDependance";
+			this.groupBoxDependance.Size = new System.Drawing.Size(300, 450);
+			this.groupBoxDependance.TabIndex = 1;
+			this.groupBoxDependance.TabStop = false;
+			this.groupBoxDependance.Text = "Injection de dépendance";
 			// 
-			// labelNombreSingleton
+			// buttonSingletonLazyThread
 			// 
-			this.labelNombreSingleton.AutoSize = true;
-			this.labelNombreSingleton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.labelNombreSingleton.Location = new System.Drawing.Point(107, 58);
-			this.labelNombreSingleton.Name = "labelNombreSingleton";
-			this.labelNombreSingleton.Size = new System.Drawing.Size(46, 20);
-			this.labelNombreSingleton.TabIndex = 2;
-			this.labelNombreSingleton.Text = "Rien";
+			this.buttonSingletonLazyThread.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.buttonSingletonLazyThread.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.buttonSingletonLazyThread.Location = new System.Drawing.Point(12, 321);
+			this.buttonSingletonLazyThread.Name = "buttonSingletonLazyThread";
+			this.buttonSingletonLazyThread.Size = new System.Drawing.Size(75, 50);
+			this.buttonSingletonLazyThread.TabIndex = 7;
+			this.buttonSingletonLazyThread.Text = "Lazy Thread";
+			this.buttonSingletonLazyThread.UseVisualStyleBackColor = true;
+			this.buttonSingletonLazyThread.Click += new System.EventHandler(this.buttonSingletonLazyThread_Click);
 			// 
-			// buttonSingletonSimpleThread
+			// labelInLazyNombre
 			// 
-			this.buttonSingletonSimpleThread.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.buttonSingletonSimpleThread.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.buttonSingletonSimpleThread.Location = new System.Drawing.Point(6, 118);
-			this.buttonSingletonSimpleThread.Name = "buttonSingletonSimpleThread";
-			this.buttonSingletonSimpleThread.Size = new System.Drawing.Size(75, 50);
-			this.buttonSingletonSimpleThread.TabIndex = 3;
-			this.buttonSingletonSimpleThread.Text = "Simple Thread";
-			this.buttonSingletonSimpleThread.UseVisualStyleBackColor = true;
-			this.buttonSingletonSimpleThread.Click += new System.EventHandler(this.buttonSingletonSimpleThread_Click);
+			this.labelInLazyNombre.AutoSize = true;
+			this.labelInLazyNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelInLazyNombre.Location = new System.Drawing.Point(113, 261);
+			this.labelInLazyNombre.Name = "labelInLazyNombre";
+			this.labelInLazyNombre.Size = new System.Drawing.Size(46, 20);
+			this.labelInLazyNombre.TabIndex = 6;
+			this.labelInLazyNombre.Text = "Rien";
+			// 
+			// labelLazyNombre
+			// 
+			this.labelLazyNombre.AutoSize = true;
+			this.labelLazyNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelLazyNombre.Location = new System.Drawing.Point(113, 231);
+			this.labelLazyNombre.Name = "labelLazyNombre";
+			this.labelLazyNombre.Size = new System.Drawing.Size(46, 20);
+			this.labelLazyNombre.TabIndex = 5;
+			this.labelLazyNombre.Text = "Rien";
+			// 
+			// buttonSingletonLazy
+			// 
+			this.buttonSingletonLazy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.buttonSingletonLazy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.buttonSingletonLazy.Location = new System.Drawing.Point(12, 231);
+			this.buttonSingletonLazy.Name = "buttonSingletonLazy";
+			this.buttonSingletonLazy.Size = new System.Drawing.Size(75, 50);
+			this.buttonSingletonLazy.TabIndex = 4;
+			this.buttonSingletonLazy.Text = "Lazy";
+			this.buttonSingletonLazy.UseVisualStyleBackColor = true;
+			this.buttonSingletonLazy.Click += new System.EventHandler(this.buttonSingletonLazy_Click);
+			// 
+			// labelInstancesSimple
+			// 
+			this.labelInstancesSimple.AutoSize = true;
+			this.labelInstancesSimple.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelInstancesSimple.Location = new System.Drawing.Point(107, 132);
+			this.labelInstancesSimple.Name = "labelInstancesSimple";
+			this.labelInstancesSimple.Size = new System.Drawing.Size(46, 20);
+			this.labelInstancesSimple.TabIndex = 8;
+			this.labelInstancesSimple.Text = "Rien";
+			// 
+			// labelInstancesLazy
+			// 
+			this.labelInstancesLazy.AutoSize = true;
+			this.labelInstancesLazy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelInstancesLazy.Location = new System.Drawing.Point(113, 335);
+			this.labelInstancesLazy.Name = "labelInstancesLazy";
+			this.labelInstancesLazy.Size = new System.Drawing.Size(46, 20);
+			this.labelInstancesLazy.TabIndex = 9;
+			this.labelInstancesLazy.Text = "Rien";
 			// 
 			// Form1
 			// 
@@ -128,6 +204,12 @@
 		private System.Windows.Forms.Button buttonSimple;
 		private System.Windows.Forms.GroupBox groupBoxDependance;
 		private System.Windows.Forms.Button buttonSingletonSimpleThread;
+		private System.Windows.Forms.Button buttonSingletonLazyThread;
+		private System.Windows.Forms.Label labelInLazyNombre;
+		private System.Windows.Forms.Label labelLazyNombre;
+		private System.Windows.Forms.Button buttonSingletonLazy;
+		private System.Windows.Forms.Label labelInstancesLazy;
+		private System.Windows.Forms.Label labelInstancesSimple;
 	}
 }
 
